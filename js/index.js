@@ -82,7 +82,10 @@ function showABook(book) {
 }
 
 function likeBook(book, likeButton) {
-    book.user = {"id": 1, "username": "pouros"} //book.user is an array so we want to push that username into the array
+   book.users.push({"id": 1, "username": "pouros"} ) //book.user is an array so we want to push that username into the array
+   //debugger
+
+    let newUserInfo = {"users": book.users}
 
     let patchRequest = {
         method: "PATCH", 
@@ -91,14 +94,12 @@ function likeBook(book, likeButton) {
             Accept: "application/json"
         }, 
 
-        body: JSON.stringify({
-            book.user: 
-        })
+        body: JSON.stringify(newUserInfo)
     }
 
     fetch(BOOKS_URL + book.id, patchRequest)
     .then(resp => resp.json() )
-    .then(newLike => showABook(newLike) )
+    .then(newLike => { showABook(newLike) })
 }
 
 
