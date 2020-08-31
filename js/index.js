@@ -57,7 +57,7 @@ function showABook(book) {
     let likeButton = document.createElement('button')
     likeButton.innerText = "Like Book"
     likeButton.addEventListener('click', (e) => {
-        likeBook(book, likeButton)
+        likeBook(book)
     })
     
 
@@ -81,7 +81,7 @@ function showABook(book) {
     //addlisterner here and then update function. when you clicck the button add another li with the user.username
 }
 
-function likeBook(book, likeButton) {
+function likeBook(book) {
    book.users.push({"id": 1, "username": "pouros"} ) //book.user is an array so we want to push that username into the array
    //debugger
 
